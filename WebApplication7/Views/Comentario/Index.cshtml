@@ -1,0 +1,32 @@
+﻿@using WebApplication7.Models
+
+@if (ViewBag.id != null)
+{
+    <div class="alert alert-danger" role="alert">
+        Se agrego el comentario exitosamente #@ViewBag.id llamada @ViewBag.titulo
+    </div>
+}
+Usuario actual: @ViewBag.usuario<br />
+
+<table class="table  table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titulo</th>
+            <th>Categoria</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Comentario com in ViewBag.comentarios)
+        {
+        <tr>
+            <th scope="row"><a href="/Comentario/Leer/@com.Id">@com.Id</a></th>
+            <td>@com.Titulo</td>
+            <td>@com.IdCategoriaNavigation.Nombre</td>
+            <td>@com.IdUsuarioNavigation.NombreCompleto</td>
+        </tr>
+        }
+
+    </tbody>
+</table>
